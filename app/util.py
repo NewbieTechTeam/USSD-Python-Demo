@@ -9,6 +9,8 @@ import yaml
 def kenya_time():
     return datetime.datetime.utcnow() + datetime.timedelta(hours=3)
 
+def south_africa_time():
+    return datetime.datetime.utcnow() + datetime.timedelta(hours=2)
 
 def setup_logging(file_name="app_logger.yaml", default_level=logging.INFO, logger_file_path=None):
     """

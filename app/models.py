@@ -2,6 +2,7 @@
 
 from .database import db, AuditColumns
 from .util import kenya_time
+from .util import south_africa_time
 
 
 class User(AuditColumns, db.Model):
@@ -57,3 +58,6 @@ class User(AuditColumns, db.Model):
 
 
 class AnonymousUser(): pass
+
+
+class Doctor( AuditColumns, db.Model): pass
