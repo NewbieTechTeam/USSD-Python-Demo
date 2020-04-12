@@ -32,7 +32,7 @@ class Config:
     AT_ENVIRONMENT = os.getenv('AT_ENVIRONMENT')
     AT_USERNAME = os.getenv('AT_USERNAME')
     AT_APIKEY = os.getenv('AT_APIKEY')
-    APP_NAME = 'nerds-microfinance-ussd-application'
+    APP_NAME = 'Digital Clinic'
 
     # application credentials
     ADMIN_PHONENUMBER = os.getenv('ADMIN_PHONENUMBER')

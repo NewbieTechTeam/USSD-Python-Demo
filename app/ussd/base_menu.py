@@ -35,10 +35,11 @@ class Menu(object):
         """serves the home menu"""
         menu_text = "Hello {}, welcome to {},\n Choose a service\n".format(self.user.username,
                                                                            current_app.config['APP_NAME'])
-        menu_text += " 1. Deposit Money\n"
-        menu_text += " 2. Withdraw Money\n"
-        menu_text += " 3. Buy Airtime\n"
-        menu_text += " 4. Check Wallet Balance\n"
+        menu_text += " 1.  \n"
+        menu_text += " 2. \n"
+        menu_text += " 3. \n"
+        menu_text += " 4. \n"
+        menu_text += "5. Find A Practioner\n"
         self.session['level'] = 1
         # print the response on to the page so that our gateway can read it
         return self.ussd_proceed(menu_text)

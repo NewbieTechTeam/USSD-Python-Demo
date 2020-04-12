@@ -155,7 +155,7 @@ def voice_callback():
         # Compose the response
         menu_text = '<?xml version="1.0" encoding="UTF-8"?>'
         menu_text += '<Response>'
-        menu_text += '<GetDigits timeout="30" finishOnKey="#" callbackUrl="https://49af2317.ngrok.io/api/v1.1/voice/callback">'
+        menu_text += '<GetDigits timeout="30" finishOnKey="#" callbackUrl="http://69e43cb6.ngrok.io/api/v1.1/voice/callback">'
         menu_text += '<Say>"Thank you for calling. Press 0 to talk to sales, 1 to talk to support or 2 to hear this message again."</Say>'
         menu_text += '</GetDigits>'
         menu_text += '<Say>"Thank you for calling. Good bye!"</Say>'

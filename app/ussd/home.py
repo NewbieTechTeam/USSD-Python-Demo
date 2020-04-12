@@ -28,11 +28,28 @@ class LowerLevelMenu(Menu):
         check_balance.apply_async(kwargs={'user_id': self.user.id})
         return self.ussd_end(menu_text)
 
+    def identify_practitioner(self):  # 6
+        menu_text = "Select Location\n" \
+                    "1. Gauteng\n" \
+                    "2. Free State\n" \
+                    "3. Mpumalanga\n" \
+                    "4. KwaZulu-Natal\n" \
+                    "5. Eastern Cape\n" \
+                    "6. Limpopo\n" \
+                    "7. Western Cape\n" \
+                    "8. North West\n" \
+                    "9. Northern Cape\n" \
+                    "0. Back"     
+        self.session['level'] = 60
+        
+        return self.ussd_proceed(menu_text)
+
     def execute(self):
         menus = {
             '1': self.deposit,
             '2': self.withdraw,
             '3': self.buy_airtime,
-            '4': self.check_balance
+            '4': self.check_balance,
+            '5': self.identify_practitioner
         }
         return menus.get(self.user_response, self.home)()
