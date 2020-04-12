@@ -154,3 +154,7 @@ def makeC2Brequest(self, phone_number, amount):
                 exc=exc
             )
         )
+
+@celery.task(bind= True, ignore_result=True)
+def selectPractice(self, id):
+    yield
