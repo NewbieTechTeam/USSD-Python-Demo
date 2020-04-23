@@ -20,6 +20,7 @@ class NerdsMicrofinanceGateway(AfricasTalkingGateway):
         cls.username = app.config['AT_USERNAME']
         cls.apiKey = app.config['AT_APIKEY']
         cls.environment = app.config['AT_ENVIRONMENT']
+        #cls.sendJSONRequest = app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
         cls.HTTP_RESPONSE_OK = 200
         cls.HTTP_RESPONSE_CREATED = 201
 

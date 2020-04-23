@@ -1,15 +1,23 @@
 from .base_menu import Menu
 from .tasks import selectPractice
 import requests
-
+from flask import jsonify
+import json
 
 class SelectPractice(Menu):
     def get_region_list(self):  # 60
         if self.user_response == '1':
             #self.session["phone_number"] = self.phone_number
-            menu_text = "Select A Practioner"
-            practices = requests.get('https://ssl-real-estate-api.herokuapp.com/api/properties').content
-            print(practices)
+            practices = requests.get('https://ssl-real-estate-api.herokuapp.com/api/properties').json()
+
+            #print(practices)
+            response = requests.get("https://ssl-real-estate-api.herokuapp.com/api/properties")
+            todos = json.loads(response.text)
+            print(type(todos)) 
+
+            menu_text = "Select A Practioner \n" 
+
+            print(todos)
             self.session['level'] = 62
             return self.ussd_proceed(menu_text)
         if self.user_response == '2':

@@ -36,16 +36,17 @@ def ussd_callback():
                               user_response=user_response, user=user)
         return menu.execute()
 
-    if level >= 60:
-        menu = SelectPractice(session_id=session_id, session=session, phone_number=g.phone_number, user_response=user_response,
-                       user=user, level=level)
-        return menu.execute()
 
-    if level >= 50:
+
+    if level >= 50 and level < 60:
         menu = Deposit(session_id=session_id, session=session, phone_number=g.phone_number,
                        user_response=user_response, user=user, level=level)
         return menu.execute()
 
+    if level >= 60:
+        menu = SelectPractice(session_id=session_id, session=session, phone_number=g.phone_number, user_response=user_response,
+                       user=user, level=level)
+        return menu.execute()
 
     if level >= 40:
         menu = WithDrawal(session_id=session_id, session=session, phone_number=g.phone_number,
