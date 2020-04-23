@@ -41,6 +41,8 @@ class LowerLevelMenu(Menu):
                     "9. Northern Cape\n" \
                     "0. Back"     
         self.session['level'] = 60
+
+        print(self.session['level'])
         
         return self.ussd_proceed(menu_text)
 
@@ -50,6 +52,6 @@ class LowerLevelMenu(Menu):
             '2': self.withdraw,
             '3': self.buy_airtime,
             '4': self.check_balance,
-            '5': self.identify_practitioner
+            '6': self.identify_practitioner
         }
         return menus.get(self.user_response, self.home)()

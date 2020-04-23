@@ -60,4 +60,4 @@ class User(AuditColumns, db.Model):
 class AnonymousUser(): pass
 
 
-class Doctor( AuditColumns, db.Model): pass
+#class Doctor( AuditColumns, db.Model): pass

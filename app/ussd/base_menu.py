@@ -40,6 +40,7 @@ class Menu(object):
         menu_text += " 3. \n"
         menu_text += " 4. \n"
         menu_text += "5. Find A Practioner\n"
+        menu_text += "6. Find A Practioner\n"
         self.session['level'] = 1
         # print the response on to the page so that our gateway can read it
         return self.ussd_proceed(menu_text)

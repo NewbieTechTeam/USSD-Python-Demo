@@ -2,6 +2,7 @@ from flask import g, make_response, request, url_for
 
 from . import ussd
 from .airtime import Airtime
+from .practitioner import SelectPractice
 from .deposit import Deposit
 from .home import LowerLevelMenu
 from .register import RegistrationMenu
@@ -35,10 +36,16 @@ def ussd_callback():
                               user_response=user_response, user=user)
         return menu.execute()
 
+    if level >= 60:
+        menu = SelectPractice(session_id=session_id, session=session, phone_number=g.phone_number, user_response=user_response,
+                       user=user, level=level)
+        return menu.execute()
+
     if level >= 50:
         menu = Deposit(session_id=session_id, session=session, phone_number=g.phone_number,
                        user_response=user_response, user=user, level=level)
         return menu.execute()
+
 
     if level >= 40:
         menu = WithDrawal(session_id=session_id, session=session, phone_number=g.phone_number,
@@ -49,6 +56,8 @@ def ussd_callback():
         menu = Airtime(session_id=session_id, session=session, phone_number=g.phone_number, user_response=user_response,
                        user=user, level=level)
         return menu.execute()
+
+
 
     response = make_response("END nothing here", 200)
     response.headers['Content-Type'] = "text/plain"
