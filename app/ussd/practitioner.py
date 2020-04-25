@@ -3,6 +3,8 @@ from .tasks import selectPractice
 import requests
 from flask import jsonify
 import json
+from array import array 
+
 
 class SelectPractice(Menu):
     def get_region_list(self):  # 60
@@ -13,11 +15,20 @@ class SelectPractice(Menu):
             #print(practices)
             response = requests.get("https://ssl-real-estate-api.herokuapp.com/api/properties")
             todos = json.loads(response.text)
-            print(type(todos)) 
+            res = dict(enumerate(todos, start=1))
+            print(res)
 
+        
+            """ for i in todos:
+                print("Break")
+                print(i)  """
             menu_text = "Select A Practioner \n" 
+            menu_text += "1. "+ res[1]['address']+"\n"
+            menu_text += "2. "+ res[2]['address']+"\n"
 
-            print(todos)
+
+
+            #print(todos)
             self.session['level'] = 62
             return self.ussd_proceed(menu_text)
         if self.user_response == '2':
