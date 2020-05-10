@@ -392,3 +392,13 @@ When the agent/person picks up, the conversation can go on.
 
 Info on REDIS : https://medium.com/@petehouston/install-and-config-redis-on-mac-os-x-via-homebrew-eb8df9a4f298
 Info on JSON format: https://www.geeksforgeeks.org/json-formatting-python/
+
+ . venv/bin/activate
+ export FLASK_APP=manage.py
+ export FLASK_ENV=development
+ flask run
+ ~/Documents/./ngrok  http 5000
+ 
+
+
+ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
