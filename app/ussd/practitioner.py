@@ -15,6 +15,8 @@ class SelectPractice(Menu):
         if self.user_response == '1':
             self.session["location"] = "Gauteng"
             print(self.session)
+            self.session['level'] = 61
+
             #practices = requests.get('https://digital-clinic-api.herokuapp.com/api/practitioners').json()
 
             #print(practices)
@@ -36,7 +38,6 @@ class SelectPractice(Menu):
 
 
             #print(todos)
-            self.session['level'] = 62
             return self.ussd_proceed(menu_text)
         if self.user_response == '2':
             menu_text = "Buy Airtime\nPlease enter phone number as (+2547XXXXXXXX)"
@@ -47,7 +48,13 @@ class SelectPractice(Menu):
     
     def get_sectors(self):
 
-        return NotImplementedError
+        menu_text = "Select Facility \n" 
+        menu_text += "1. Turner\n"
+        menu_text += "2. Kyle\n"
+
+
+        self.session['level'] = 63
+        return self.ussd_proceed(menu_text)
 
 
 
@@ -69,7 +76,7 @@ class SelectPractice(Menu):
         pass
 
 
-    def select_practitione(self):
+    def select_practitioner(self):
 
     
         pass
